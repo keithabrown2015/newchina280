@@ -1,0 +1,1355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>New China | Chinese Restaurant | Highway 280 Birmingham AL</title>
+<meta name="description" content="New China Chinese Restaurant on Highway 280 in Birmingham, AL. Fresh, authentic Chinese cuisine. Order online for pickup. Open 7 days a week.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg: #0a0a0a;
+  --bg-card: #141414;
+  --bg-elevated: #1a1a1a;
+  --text: #f5f0eb;
+  --text-muted: #8a8580;
+  --accent: #c8372d;
+  --accent-glow: #e8453a;
+  --gold: #c9a96e;
+  --gold-light: #e0c992;
+  --border: rgba(255,255,255,0.06);
+  --radius: 16px;
+}
+
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─── UTILITY ─── */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
+
+/* ─── NAVIGATION ─── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  padding: 0 24px;
+  background: rgba(10,10,10,0.8);
+  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  transition: all 0.4s ease;
+}
+nav.scrolled { background: rgba(10,10,10,0.95); }
+nav .nav-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 72px;
+}
+nav .logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem; font-weight: 700;
+  color: var(--text); text-decoration: none;
+  letter-spacing: -0.02em;
+}
+nav .logo span { color: var(--accent); }
+nav .nav-links { display: flex; gap: 32px; list-style: none; }
+nav .nav-links a {
+  color: var(--text-muted); text-decoration: none;
+  font-size: 0.85rem; font-weight: 500;
+  letter-spacing: 0.05em; text-transform: uppercase;
+  transition: color 0.3s;
+}
+nav .nav-links a:hover { color: var(--text); }
+nav .order-btn {
+  background: var(--accent); color: white;
+  padding: 10px 24px; border-radius: 100px;
+  font-size: 0.85rem; font-weight: 600;
+  text-decoration: none; letter-spacing: 0.03em;
+  transition: all 0.3s; border: none; cursor: pointer;
+}
+nav .order-btn:hover { background: var(--accent-glow); transform: translateY(-1px); box-shadow: 0 8px 30px rgba(200,55,45,0.3); }
+
+/* Mobile hamburger */
+.hamburger { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+.hamburger span { display: block; width: 24px; height: 2px; background: var(--text); margin: 6px 0; transition: all 0.3s; border-radius: 2px; }
+.hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
+
+/* Mobile menu */
+.mobile-menu {
+  display: none; position: fixed; top: 72px; left: 0; right: 0; bottom: 0;
+  background: rgba(10,10,10,0.98); backdrop-filter: blur(20px);
+  padding: 40px 24px; z-index: 999;
+  flex-direction: column; align-items: center; gap: 24px;
+}
+.mobile-menu.active { display: flex; }
+.mobile-menu a {
+  color: var(--text); text-decoration: none;
+  font-size: 1.5rem; font-weight: 300;
+  letter-spacing: 0.05em;
+}
+
+@media (max-width: 768px) {
+  .hamburger { display: block; }
+  nav .nav-links, nav .order-btn { display: none; }
+}
+
+/* ─── HERO ─── */
+.hero {
+  min-height: 100vh; display: flex; align-items: center; justify-content: center;
+  position: relative; overflow: hidden;
+  padding: 120px 24px 80px;
+  text-align: center;
+}
+.hero::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 50% 30%, rgba(200,55,45,0.08) 0%, transparent 60%),
+              radial-gradient(ellipse at 80% 80%, rgba(201,169,110,0.05) 0%, transparent 50%);
+}
+.hero-content { position: relative; z-index: 1; max-width: 800px; }
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 20px; border-radius: 100px;
+  border: 1px solid rgba(201,169,110,0.3);
+  background: rgba(201,169,110,0.05);
+  color: var(--gold); font-size: 0.75rem;
+  font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase;
+  margin-bottom: 32px;
+}
+.hero-badge .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); animation: pulse 2s infinite; }
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(3rem, 8vw, 6.5rem);
+  font-weight: 700; line-height: 1.05;
+  letter-spacing: -0.03em;
+  margin-bottom: 24px;
+}
+.hero h1 em { font-style: italic; color: var(--gold); }
+.hero p {
+  font-size: 1.15rem; color: var(--text-muted);
+  max-width: 520px; margin: 0 auto 48px;
+  font-weight: 300; line-height: 1.7;
+}
+.hero-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+.btn-primary {
+  background: var(--accent); color: white;
+  padding: 16px 40px; border-radius: 100px;
+  font-size: 1rem; font-weight: 600;
+  text-decoration: none; transition: all 0.3s;
+  display: inline-flex; align-items: center; gap: 10px;
+  border: none; cursor: pointer;
+}
+.btn-primary:hover { background: var(--accent-glow); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(200,55,45,0.35); }
+.btn-secondary {
+  background: transparent; color: var(--text);
+  padding: 16px 40px; border-radius: 100px;
+  font-size: 1rem; font-weight: 500;
+  text-decoration: none; transition: all 0.3s;
+  border: 1px solid rgba(255,255,255,0.15);
+}
+.btn-secondary:hover { border-color: rgba(255,255,255,0.4); background: rgba(255,255,255,0.03); }
+
+/* Scroll indicator */
+.scroll-indicator {
+  position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  color: var(--text-muted); font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase;
+}
+.scroll-indicator .line { width: 1px; height: 40px; background: linear-gradient(to bottom, var(--text-muted), transparent); animation: scrollDown 2s infinite; }
+@keyframes scrollDown { 0% { opacity: 0; transform: scaleY(0); transform-origin: top; } 50% { opacity: 1; transform: scaleY(1); } 100% { opacity: 0; transform: scaleY(0); transform-origin: bottom; } }
+
+/* ─── INFO BAR ─── */
+.info-bar {
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 48px 0;
+}
+.info-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px;
+  max-width: 900px; margin: 0 auto; text-align: center;
+}
+.info-item .info-label {
+  font-size: 0.7rem; font-weight: 600;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 8px;
+}
+.info-item .info-value { font-size: 1.1rem; font-weight: 400; color: var(--text); }
+.info-item .info-value a { color: var(--text); text-decoration: none; }
+.info-item .info-value a:hover { color: var(--gold); }
+@media (max-width: 600px) { .info-grid { grid-template-columns: 1fr; gap: 24px; } }
+
+/* ─── SECTIONS ─── */
+section { padding: 100px 0; }
+.section-header { text-align: center; margin-bottom: 64px; }
+.section-header .overline {
+  font-size: 0.7rem; font-weight: 600;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 16px;
+}
+.section-header h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700; letter-spacing: -0.02em;
+}
+.section-header p {
+  color: var(--text-muted); max-width: 500px;
+  margin: 16px auto 0; font-weight: 300;
+}
+
+/* ─── FEATURES ─── */
+.features-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+}
+.feature-card {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 40px 32px;
+  transition: all 0.4s;
+}
+.feature-card:hover { border-color: rgba(201,169,110,0.2); transform: translateY(-4px); }
+.feature-icon {
+  width: 48px; height: 48px; border-radius: 12px;
+  background: rgba(200,55,45,0.1); color: var(--accent);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.4rem; margin-bottom: 24px;
+}
+.feature-card h3 { font-size: 1.15rem; font-weight: 600; margin-bottom: 12px; }
+.feature-card p { color: var(--text-muted); font-size: 0.9rem; line-height: 1.6; font-weight: 300; }
+@media (max-width: 768px) { .features-grid { grid-template-columns: 1fr; } }
+
+/* ─── MENU ─── */
+#menu { background: var(--bg); }
+
+/* Order-by-number callout */
+.menu-callout {
+  display: flex; align-items: center; justify-content: center; gap: 12px;
+  background: linear-gradient(135deg, rgba(201,169,110,0.08), rgba(200,55,45,0.06));
+  border: 1px solid rgba(201,169,110,0.2);
+  border-radius: 100px; padding: 14px 32px;
+  max-width: 600px; margin: 0 auto 40px;
+  text-align: center;
+}
+.menu-callout .callout-icon {
+  width: 36px; height: 36px; min-width: 36px;
+  border-radius: 50%; background: var(--accent);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.85rem; font-weight: 800; color: white;
+}
+.menu-callout .callout-text {
+  font-size: 0.85rem; color: var(--text); font-weight: 400;
+}
+.menu-callout .callout-text strong { color: var(--gold); font-weight: 600; }
+
+.menu-tabs {
+  display: flex; gap: 8px; justify-content: center; flex-wrap: wrap;
+  margin-bottom: 48px;
+}
+.menu-tab {
+  padding: 10px 24px; border-radius: 100px;
+  background: transparent; border: 1px solid var(--border);
+  color: var(--text-muted); font-size: 0.8rem;
+  font-weight: 500; cursor: pointer;
+  transition: all 0.3s; letter-spacing: 0.03em;
+  font-family: 'Inter', sans-serif;
+}
+.menu-tab:hover { border-color: rgba(255,255,255,0.2); color: var(--text); }
+.menu-tab.active { background: var(--accent); border-color: var(--accent); color: white; }
+
+.menu-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 0;
+}
+.menu-item {
+  display: flex; align-items: flex-start;
+  padding: 18px 20px; background: var(--bg-card);
+  transition: all 0.3s; gap: 14px;
+  border-bottom: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+}
+.menu-item:hover { background: var(--bg-elevated); }
+
+/* Item number badge */
+.item-num {
+  min-width: 36px; height: 36px;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(201,169,110,0.08);
+  border: 1px solid rgba(201,169,110,0.2);
+  border-radius: 8px;
+  font-size: 0.8rem; font-weight: 700;
+  color: var(--gold); letter-spacing: -0.02em;
+  flex-shrink: 0; margin-top: 1px;
+}
+.item-num.letter {
+  background: rgba(200,55,45,0.1);
+  border-color: rgba(200,55,45,0.25);
+  color: var(--accent-glow);
+}
+
+.menu-item .item-info { flex: 1; min-width: 0; }
+.menu-item .item-name {
+  font-size: 0.95rem; font-weight: 500; margin-bottom: 3px;
+  display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+}
+.menu-item .item-name .spicy {
+  font-size: 0.6rem; padding: 2px 8px;
+  background: rgba(200,55,45,0.15); color: var(--accent);
+  border-radius: 100px; font-weight: 600; letter-spacing: 0.03em;
+}
+.menu-item .item-desc { font-size: 0.8rem; color: var(--text-muted); font-weight: 300; line-height: 1.5; }
+.menu-item .item-price {
+  font-size: 1rem; font-weight: 600; color: var(--gold);
+  white-space: nowrap; flex-shrink: 0; margin-top: 2px;
+}
+
+.menu-section-title {
+  grid-column: 1 / -1;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem; padding: 28px 20px 14px;
+  color: var(--gold); font-weight: 400; font-style: italic;
+  border-bottom: 1px solid rgba(201,169,110,0.15);
+}
+
+/* Full-width item */
+.menu-item.full-width { grid-column: 1 / -1; }
+
+@media (max-width: 768px) {
+  .menu-grid { grid-template-columns: 1fr; }
+  .menu-item { border-right: none; }
+  .menu-callout { flex-direction: column; border-radius: var(--radius); padding: 20px 24px; }
+}
+
+/* Category panels */
+.menu-category { display: none; }
+.menu-category.active { display: block; }
+
+/* ─── SPECIALS BANNER ─── */
+.specials-banner {
+  background: linear-gradient(135deg, rgba(200,55,45,0.08) 0%, rgba(201,169,110,0.08) 100%);
+  border: 1px solid rgba(201,169,110,0.15);
+  border-radius: var(--radius);
+  padding: 60px 48px; text-align: center;
+  margin: 0 auto; max-width: 900px;
+  position: relative; overflow: hidden;
+}
+.specials-banner::before {
+  content: '午'; position: absolute; top: -20px; right: -10px;
+  font-size: 12rem; font-weight: 700; color: rgba(201,169,110,0.04);
+  font-family: serif;
+}
+.specials-banner h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem; margin-bottom: 12px; position: relative;
+}
+.specials-banner p { color: var(--text-muted); font-weight: 300; max-width: 500px; margin: 0 auto 8px; position: relative; }
+.specials-banner .price { font-size: 2.5rem; font-weight: 800; color: var(--gold); position: relative; }
+.specials-banner .lunch-note {
+  font-size: 0.8rem; color: var(--text-muted); margin-top: 8px; position: relative; font-weight: 400;
+}
+
+/* Lunch specials grid */
+.lunch-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 0;
+  margin-top: 40px; max-width: 900px; margin-left: auto; margin-right: auto;
+  border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden;
+}
+.lunch-item {
+  display: flex; align-items: center; gap: 12px;
+  padding: 14px 18px; background: var(--bg-card);
+  border-bottom: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+  transition: background 0.3s;
+}
+.lunch-item:hover { background: var(--bg-elevated); }
+.lunch-num {
+  min-width: 28px; height: 28px;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(200,55,45,0.1);
+  border: 1px solid rgba(200,55,45,0.2);
+  border-radius: 6px;
+  font-size: 0.7rem; font-weight: 700;
+  color: var(--accent-glow); flex-shrink: 0;
+}
+.lunch-item .lunch-name { font-size: 0.85rem; font-weight: 400; color: var(--text); }
+@media (max-width: 768px) {
+  .lunch-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 480px) {
+  .lunch-grid { grid-template-columns: 1fr; }
+}
+
+/* ─── REVIEWS ─── */
+.reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.review-card {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 36px;
+}
+.review-stars { color: var(--gold); font-size: 0.9rem; margin-bottom: 16px; letter-spacing: 2px; }
+.review-text { font-size: 0.95rem; font-weight: 300; line-height: 1.7; margin-bottom: 20px; font-style: italic; color: rgba(245,240,235,0.85); }
+.review-author { font-size: 0.8rem; color: var(--text-muted); font-weight: 500; }
+@media (max-width: 768px) { .reviews-grid { grid-template-columns: 1fr; } }
+
+/* ─── HOUSE DINNERS ─── */
+.dinner-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; max-width: 900px; margin: 0 auto; }
+.dinner-card {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 36px 24px; text-align: center;
+  transition: all 0.4s; position: relative; overflow: hidden;
+}
+.dinner-card:hover { border-color: var(--gold); transform: translateY(-4px); }
+.dinner-card .dinner-for {
+  font-size: 0.7rem; font-weight: 600; letter-spacing: 0.15em;
+  text-transform: uppercase; color: var(--gold); margin-bottom: 8px;
+}
+.dinner-card .dinner-price { font-size: 2rem; font-weight: 800; margin-bottom: 12px; }
+.dinner-card .dinner-desc { font-size: 0.8rem; color: var(--text-muted); font-weight: 300; line-height: 1.6; }
+@media (max-width: 900px) { .dinner-grid { grid-template-columns: repeat(3, 1fr) !important; } }
+@media (max-width: 600px) { .dinner-grid { grid-template-columns: repeat(2, 1fr) !important; } }
+
+/* ─── CTA ─── */
+.cta-section {
+  text-align: center; padding: 120px 24px;
+  position: relative; overflow: hidden;
+}
+.cta-section::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 50% 50%, rgba(200,55,45,0.1) 0%, transparent 70%);
+}
+.cta-section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 700; margin-bottom: 24px;
+  position: relative; letter-spacing: -0.02em;
+}
+.cta-section p { color: var(--text-muted); font-size: 1.1rem; margin-bottom: 40px; font-weight: 300; position: relative; }
+
+/* ─── MAP ─── */
+.map-section { padding: 0; }
+.map-container {
+  width: 100%; height: 400px;
+  filter: grayscale(1) brightness(0.6) contrast(1.2);
+  transition: filter 0.4s;
+}
+.map-container:hover { filter: grayscale(0.5) brightness(0.7) contrast(1.1); }
+.map-container iframe { width: 100%; height: 100%; border: 0; }
+
+/* ─── FOOTER ─── */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 60px 0 40px;
+}
+.footer-grid {
+  display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px;
+  margin-bottom: 48px;
+}
+.footer-brand .logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem; font-weight: 700;
+  margin-bottom: 16px;
+}
+.footer-brand .logo span { color: var(--accent); }
+.footer-brand p { color: var(--text-muted); font-size: 0.85rem; font-weight: 300; line-height: 1.7; max-width: 300px; }
+.footer-col h4 {
+  font-size: 0.7rem; font-weight: 600; letter-spacing: 0.15em;
+  text-transform: uppercase; color: var(--gold); margin-bottom: 20px;
+}
+.footer-col ul { list-style: none; }
+.footer-col li { margin-bottom: 12px; }
+.footer-col a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; font-weight: 300; transition: color 0.3s; }
+.footer-col a:hover { color: var(--text); }
+.footer-bottom {
+  border-top: 1px solid var(--border); padding-top: 32px;
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 0.8rem; color: var(--text-muted); font-weight: 300;
+}
+@media (max-width: 768px) {
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+  .footer-bottom { flex-direction: column; gap: 12px; }
+}
+
+/* ─── ANIMATIONS ─── */
+.fade-in {
+  opacity: 0; transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+
+/* ─── ORDER MODAL ─── */
+.modal-overlay {
+  display: none; position: fixed; inset: 0; z-index: 2000;
+  background: rgba(0,0,0,0.7); backdrop-filter: blur(8px);
+  align-items: center; justify-content: center; padding: 24px;
+}
+.modal-overlay.active { display: flex; }
+.modal {
+  background: var(--bg-elevated); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 48px; max-width: 480px; width: 100%;
+  text-align: center; position: relative;
+}
+.modal-close {
+  position: absolute; top: 16px; right: 16px;
+  background: none; border: none; color: var(--text-muted);
+  font-size: 1.5rem; cursor: pointer; padding: 8px;
+  line-height: 1;
+}
+.modal h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 8px; }
+.modal p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 32px; font-weight: 300; }
+.modal .order-tip {
+  background: rgba(201,169,110,0.08); border: 1px solid rgba(201,169,110,0.15);
+  border-radius: 12px; padding: 16px 20px; margin-bottom: 28px;
+  font-size: 0.85rem; color: var(--text-muted); font-weight: 300;
+}
+.modal .order-tip strong { color: var(--gold); font-weight: 600; }
+.modal .phone-link {
+  display: inline-flex; align-items: center; gap: 12px;
+  background: var(--accent); color: white;
+  padding: 18px 40px; border-radius: 100px;
+  font-size: 1.2rem; font-weight: 700;
+  text-decoration: none; transition: all 0.3s;
+  margin-bottom: 24px;
+}
+.modal .phone-link:hover { background: var(--accent-glow); transform: scale(1.03); }
+.modal .modal-hours { font-size: 0.8rem; color: var(--text-muted); }
+
+/* Chinese character decoration */
+.chinese-char {
+  position: absolute; font-family: serif;
+  color: rgba(201,169,110,0.03); font-size: 20rem;
+  pointer-events: none; user-select: none; z-index: 0;
+}
+</style>
+</head>
+<body>
+
+<!-- ─── NAVIGATION ─── -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="#" class="logo">New<span>China</span></a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#specials">Specials</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#contact">Find Us</a></li>
+    </ul>
+    <a href="#order" class="order-btn" onclick="openOrderModal(event)">Order Now</a>
+    <button class="hamburger" onclick="toggleMobile()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="closeMobile()">About</a>
+  <a href="#menu" onclick="closeMobile()">Menu</a>
+  <a href="#specials" onclick="closeMobile()">Specials</a>
+  <a href="#reviews" onclick="closeMobile()">Reviews</a>
+  <a href="#contact" onclick="closeMobile()">Find Us</a>
+  <a href="#order" class="btn-primary" onclick="closeMobile(); openOrderModal(event);" style="margin-top:16px;">Order Now</a>
+</div>
+
+<!-- ─── HERO ─── -->
+<section class="hero">
+  <span class="chinese-char" style="top:-5%;left:-5%;">新</span>
+  <span class="chinese-char" style="bottom:-10%;right:-5%;font-size:16rem;">中</span>
+  <div class="hero-content">
+    <div class="hero-badge"><span class="dot"></span> Open 7 Days a Week</div>
+    <h1>Authentic Chinese<br>on <em>the 280</em></h1>
+    <p>Fresh, made-to-order Chinese cuisine served on Birmingham's busiest corridor. Family-owned since day one.</p>
+    <div class="hero-actions">
+      <a href="#order" class="btn-primary" onclick="openOrderModal(event)">
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        Call to Order
+      </a>
+      <a href="#menu" class="btn-secondary">View Menu</a>
+    </div>
+  </div>
+  <div class="scroll-indicator">
+    <div class="line"></div>
+    Scroll
+  </div>
+</section>
+
+<!-- ─── INFO BAR ─── -->
+<div class="info-bar">
+  <div class="container">
+    <div class="info-grid">
+      <div class="info-item">
+        <div class="info-label">Hours</div>
+        <div class="info-value">11:00 AM &ndash; 8:00 PM &middot; Every Day</div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">Location</div>
+        <div class="info-value"><a href="https://maps.google.com/?q=5361+Highway+280+Suite+104+Birmingham+AL+35242" target="_blank">5361 Hwy 280, Suite 104</a></div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">Call to Order</div>
+        <div class="info-value"><a href="tel:2059952228">(205) 995-2228</a></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── ABOUT / FEATURES ─── -->
+<section id="about">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="overline">Why New China</div>
+      <h2>Taste the Difference</h2>
+      <p>We've been the neighborhood go-to on Highway 280 for authentic Chinese — and there's a reason people keep coming back.</p>
+    </div>
+    <div class="features-grid fade-in">
+      <div class="feature-card">
+        <div class="feature-icon">&#127859;</div>
+        <h3>Made Fresh Daily</h3>
+        <p>Every dish is prepared to order using fresh ingredients. No heat lamps, no pre-made trays. Real cooking, every time.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#9201;</div>
+        <h3>Fast &amp; Convenient</h3>
+        <p>Call ahead or walk in. We're known for fast turnarounds — perfect for your lunch break or the drive home on 280.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#128150;</div>
+        <h3>Family Owned</h3>
+        <p>We remember our regulars and their orders. This isn't a chain — it's your neighborhood Chinese restaurant.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── MENU ─── -->
+<section id="menu">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="overline">Our Menu</div>
+      <h2>Something for Everyone</h2>
+      <p>Over 70 dishes, from classic favorites to Chef's Specials. All at prices that keep you coming back.</p>
+    </div>
+
+    <!-- Order by number callout -->
+    <div class="menu-callout fade-in">
+      <div class="callout-icon">#</div>
+      <div class="callout-text"><strong>Order by number</strong> when you call — it's the fastest way to place your order.</div>
+    </div>
+
+    <div class="menu-tabs fade-in" id="menuTabs">
+      <button class="menu-tab active" data-cat="appetizers">Appetizers</button>
+      <button class="menu-tab" data-cat="soup">Soup</button>
+      <button class="menu-tab" data-cat="chicken">Chicken</button>
+      <button class="menu-tab" data-cat="seafood">Seafood</button>
+      <button class="menu-tab" data-cat="beef-pork">Beef &amp; Pork</button>
+      <button class="menu-tab" data-cat="vegetables">Vegetables</button>
+      <button class="menu-tab" data-cat="classics">Classics</button>
+      <button class="menu-tab" data-cat="chefs">Chef's Specials</button>
+    </div>
+
+    <!-- ═══ APPETIZERS ═══ -->
+    <div class="menu-category active" id="cat-appetizers">
+      <div class="menu-grid">
+        <div class="menu-item">
+          <div class="item-num">1</div>
+          <div class="item-info"><div class="item-name">Fried Pot Stickers (8)</div><div class="item-desc">Chinese fried raviolis</div></div>
+          <div class="item-price">$7.00</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-num">2</div>
+          <div class="item-info"><div class="item-name">Fried Won Ton (6)</div><div class="item-desc">Golden fried wontons</div></div>
+          <div class="item-price">$5.00</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-num">3</div>
+          <div class="item-info"><div class="item-name">Satay Chicken (4)</div><div class="item-desc">Grilled skewered chicken</div></div>
+          <div class="item-price">$7.00</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-num">4</div>
+          <div class="item-info"><div class="item-name">Steamed Dumplings (8)</div><div class="item-desc">Chinese steamed raviolis</div></div>
+          <div class="item-price">$7.00</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-num">5</div>
+          <div class="item-info"><div class="item-name">Egg Rolls (2)</div><div class="item-desc">Crispy egg rolls</div></div>
+          <div class="item-price">$5.00</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-num">6</div>
+          <div class="item-info"><div class="item-name">Chinese Donut (10)</div><div class="item-desc">Sweet fried dough bites</div></div>
+          <div class="item-price">$8.00</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-num">7</div>
+          <div class="item-info"><div class="item-name">Chicken Wings (6)</div><div class="item-desc">Seasoned and fried to perfection</div></div>
+          <div class="item-price">$8.00</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-num">8</div>
+          <div class="item-info"><div class="item-name">Crab Angel (6)</div><div class="item-desc">Cream cheese and crab filled wontons</div></div>
+          <div class="item-price">$6.00</div>
+        </div>
+        <div class="menu-item full-width">
+          <div class="item-num">9</div>
+          <div class="item-info"><div class="item-name">Appetizer Platter (for 2)</div><div class="item-desc">Assorted Appetizers: Fried Won Ton, Egg Rolls, Satay Chicken, Chicken Wing &amp; Crab Angel</div></div>
+          <div class="item-price">$15.00</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ SOUP ═══ -->
+    <div class="menu-category" id="cat-soup">
+      <div class="menu-grid">
+        <div class="menu-item">
+          <div class="item-num">10</div>
+          <div class="item-info"><div class="item-name">Vegetarians and Bean Curd Soup</div><div class="item-desc">Vegetarians Delight! Vegetables with Chinese bean curd</div></div>
+          <div class="item-price">$6.00</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-num">11</div>
+          <div class="item-info"><div class="item-name">Won Ton Soup</div><div class="item-desc">Sliced chicken and Chinese greens, served in chicken broth</div></div>
+          <div class="item-price">$7.00</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-num">12</div>
+          <div class="item-info"><div class="item-name">Hot and Sour Soup <span class="spicy">SPICY</span></div><div class="item-desc">Sliced chicken with bean curd and egg drops in chicken broth</div></div>
+          <div class="item-price">$6.00</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-num">13</div>
+          <div class="item-info"><div class="item-name">Sweet Corn Chicken Soup</div><div class="item-desc">White meat chicken blended with creamy sweet corn, cooked in chicken broth</div></div>
+          <div class="item-price">$6.00</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-num">14</div>
+          <div class="item-info"><div class="item-name">Sizzling Rice Soup</div><div class="item-desc">Chicken and vegetables served with golden rice crust</div></div>
+          <div class="item-price">$7.00</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-num">15</div>
+          <div class="item-info"><div class="item-name">Egg Drop Soup</div><div class="item-desc">Spinach and mushrooms blended in chicken broth</div></div>
+          <div class="item-price">$6.00</div>
+        </div>
+        <div class="menu-item full-width">
+          <div class="item-num">16</div>
+          <div class="item-info"><div class="item-name">House Special Soup</div><div class="item-desc">Delicious crab meat, shrimp, and vegetable blended in chicken broth</div></div>
+          <div class="item-price">$7.00</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ CHICKEN ═══ -->
+    <div class="menu-category" id="cat-chicken">
+      <div class="menu-grid">
+        <div class="menu-item">
+          <div class="item-num">17</div>
+          <div class="item-info"><div class="item-name">Chicken with Assorted Vegetables</div><div class="item-desc">Boneless chicken cooked with fresh broccoli, nappa, bamboo shoots, water chestnuts and mushrooms</div></div>
+          <div class="item-price">$12.25</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-num">18</div>
+          <div class="item-info"><div class="item-name">Sweet and Sour Chicken</div><div class="item-desc">Boneless chicken lightly breaded, fried and cooked with green pepper, carrots &amp; pineapple in sweet and sour sauce</div></div>
+          <div class="item-price">$12.25</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-num">19</div>
+          <div class="item-info"><div class="item-name">Chicken with Pea Pods</div><div class="item-desc">Boneless chicken cooked with fresh pea pods, carrots, water chestnuts and bamboo shoots</div></div>
+          <div class="item-price">$13.25</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-num">20</div>
+          <div class="item-info"><div class="item-name">Almond or Cashew Chicken</div><div class="item-desc">Boneless chicken cooked with water chestnuts, mushrooms, bamboo shoots and garnished with toasted almond or cashew</div></div>
+          <div class="item-price">$12.25</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-num">20</div>
+          <div class="item-info"><div class="item-name">Almond or Cashew Shrimp</div><div class="item-desc">Shrimp cooked with water chestnuts, mushrooms, bamboo shoots and garnished with toasted almond or cashew</div></div>
+          <div class="item-price">$13.25</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-num">21</div>
+          <div class="item-info"><div class="item-name">Sesame Chicken</div><div class="item-desc">Chicken in thin batter cooked with sesame seed and chefs special sauce</div></div>
+          <div class="item-price">$12.25</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-num">22</div>
+          <div class="item-info"><div class="item-name">General Tso's Chicken <span class="spicy">SPICY</span></div><div class="item-desc">Chicken in thin batter cooked with special sauce and broccoli</div></div>
+          <div class="item-price">$13.25</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-num">23</div>
+          <div class="item-info"><div class="item-name">Curry Chicken <span class="spicy">SPICY</span></div><div class="item-desc">Chicken in a rich yellow curry sauce</div></div>
+          <div class="item-price">$13.25</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-num">24</div>
+          <div class="item-info"><div class="item-name">Mongolian Chicken</div><div class="item-desc">White meat chicken sauteed with green onions and bedded on shredded rice stick</div></div>
+          <div class="item-price">$13.25</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-num">25</div>
+          <div class="item-info"><div class="item-name">Hunan Chicken <span class="spicy">SPICY</span></div><div class="item-desc">White meat chicken cooked with vegetables in sweet-sour spicy sauce</div></div>
+          <div class="item-price">$12.25</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-num">26</div>
+          <div class="item-info"><div class="item-name">Lemon Chicken</div><div class="item-desc">Boneless chicken dipped in thin batter, fried to a golden brown and served in a tantalizing sauce</div></div>
+          <div class="item-price">$13.25</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-num">27</div>
+          <div class="item-info"><div class="item-name">Kung Pao Chicken <span class="spicy">SPICY</span></div><div class="item-desc">Tender cubes of chicken sauteed with mushrooms, pea pods, bamboo shoots and peanuts in a spicy brown sauce</div></div>
+          <div class="item-price">$12.25</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-num">28</div>
+          <div class="item-info"><div class="item-name">Mandarin Chicken <span class="spicy">SPICY</span></div><div class="item-desc">Fried chunks of chicken braised with spicy garlic sauce</div></div>
+          <div class="item-price">$13.25</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-num">29</div>
+          <div class="item-info"><div class="item-name">Chicken Sizzling Rice</div><div class="item-desc">Chicken breast cooked with pea pods, bamboo shoots, mushrooms and sauteed in light sauce with sizzling golden rice crust, served on hot plate</div></div>
+          <div class="item-price">$13.25</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-num">30</div>
+          <div class="item-info"><div class="item-name">Chicken with Broccoli</div><div class="item-desc">Boneless chicken cooked with fresh broccoli</div></div>
+          <div class="item-price">$12.25</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-num">31</div>
+          <div class="item-info"><div class="item-name">Szechuan Chicken <span class="spicy">SPICY</span></div><div class="item-desc">Chicken sauteed with bamboo shoots, onion, and carrots in hot spicy sauce</div></div>
+          <div class="item-price">$13.25</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-num">32</div>
+          <div class="item-info"><div class="item-name">Orange Chicken</div><div class="item-desc">Crispy chicken with orange zest in a tangy glaze</div></div>
+          <div class="item-price">$13.25</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ SEAFOOD ═══ -->
+    <div class="menu-category" id="cat-seafood">
+      <div class="menu-grid">
+        <div class="menu-item">
+          <div class="item-num">33</div>
+          <div class="item-info"><div class="item-name">Three Delicacies</div><div class="item-desc">Combination of crab meat, shrimp and scallops blended with Chinese greens in light sauce</div></div>
+          <div class="item-price">$15.25</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-num">34</div>
+          <div class="item-info"><div class="item-name">Seafood Sizzling Rice</div><div class="item-desc">Chunks of crab meat, shrimp and scallops sauteed in light sauce and served with sizzling rice, served on hot plate</div></div>
+          <div class="item-price">$15.25</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-num">35</div>
+          <div class="item-info"><div class="item-name">Sesame Shrimp</div><div class="item-desc">Shrimp in thin batter cooked with Chef's special and sesame seeds</div></div>
+          <div class="item-price">$13.25</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-num">36</div>
+          <div class="item-info"><div class="item-name">Kung Pao Shrimp <span class="spicy">SPICY</span></div><div class="item-desc">Fresh shrimp with peanuts, water chestnuts and bamboo shoots, sauteed in spicy hot sauce</div></div>
+          <div class="item-price">$13.25</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-num">37</div>
+          <div class="item-info"><div class="item-name">Shrimp with Lobster Sauce</div><div class="item-desc">Fresh jumbo shrimp with tantalizing sauce of minced pork, garnished with egg and scallion</div></div>
+          <div class="item-price">$14.25</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-num">38</div>
+          <div class="item-info"><div class="item-name">Shrimp with Vegetables</div><div class="item-desc">Peeled shrimp cooked with mixed vegetables</div></div>
+          <div class="item-price">$13.25</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-num">39</div>
+          <div class="item-info"><div class="item-name">Scallops with Pea Pods</div><div class="item-desc">Selected scallops sauteed with fresh pea pods, carrots, water chestnuts and bamboo shoots</div></div>
+          <div class="item-price">$15.25</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-num">40</div>
+          <div class="item-info"><div class="item-name">Mandarin Combination</div><div class="item-desc">Sliced tenderloin beef, shrimp and chicken blended with mixed Chinese vegetables</div></div>
+          <div class="item-price">$14.25</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-num">41</div>
+          <div class="item-info"><div class="item-name">Happy Family</div><div class="item-desc">Selected seafood of crab meat, shrimp, and chicken sauteed with Chinese greens in brown sauce</div></div>
+          <div class="item-price">$14.25</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-num">42</div>
+          <div class="item-info"><div class="item-name">Sweet and Sour Shrimp</div><div class="item-desc">Fresh jumbo shrimp, lightly breaded and cooked with green pepper, carrots, and pineapple in sweet and sour sauce</div></div>
+          <div class="item-price">$13.25</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-num">43</div>
+          <div class="item-info"><div class="item-name">Beef and Scallops</div><div class="item-desc">Fresh, tender scallops with water chestnuts, and bamboo shoots garnished in a brown sauce</div></div>
+          <div class="item-price">$15.25</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-num">44</div>
+          <div class="item-info"><div class="item-name">Shrimp with Broccoli</div><div class="item-desc">Shrimps cooked with fresh broccoli</div></div>
+          <div class="item-price">$13.25</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-num">45</div>
+          <div class="item-info"><div class="item-name">Hunan Shrimp <span class="spicy">SPICY</span></div><div class="item-desc">Shrimps cooked with mixed vegetables in a sweet-sour-spicy sauce</div></div>
+          <div class="item-price">$13.25</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-num">46</div>
+          <div class="item-info"><div class="item-name">Mandarin Shrimp <span class="spicy">SPICY</span></div><div class="item-desc">Shrimps cooked with mixed vegetables in a sweet-sour-spicy sauce</div></div>
+          <div class="item-price">$14.25</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ BEEF & PORK ═══ -->
+    <div class="menu-category" id="cat-beef-pork">
+      <div class="menu-grid">
+        <div class="menu-item">
+          <div class="item-num">47</div>
+          <div class="item-info"><div class="item-name">Mongolian Beef</div><div class="item-desc">Sliced tender beef sauteed with green onions, and bedded on shredded rice sticks</div></div>
+          <div class="item-price">$13.25</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-num">48</div>
+          <div class="item-info"><div class="item-name">Sesame Beef</div><div class="item-desc">Sliced beef sauteed with hot pepper and sesame seeds</div></div>
+          <div class="item-price">$14.25</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-num">49</div>
+          <div class="item-info"><div class="item-name">Pepper Steak</div><div class="item-desc">Tender slices of beef cooked with white onions &amp; green peppers</div></div>
+          <div class="item-price">$13.25</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-num">50</div>
+          <div class="item-info"><div class="item-name">Beef with Broccoli</div><div class="item-desc">Fresh broccoli cooked with marinated beef</div></div>
+          <div class="item-price">$13.25</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-num">51</div>
+          <div class="item-info"><div class="item-name">Kung Pao Beef (Szechuan Style) <span class="spicy">SPICY</span></div><div class="item-desc">Sliced tender beef with peanuts sauteed with Chinese greens and garnished with spicy hot sauce</div></div>
+          <div class="item-price">$13.25</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-num">52</div>
+          <div class="item-info"><div class="item-name">Sweet and Sour Pork</div><div class="item-desc">Lightly breaded pork, fried and cooked with green pepper, carrots and pineapple in sweet and sour sauce</div></div>
+          <div class="item-price">$13.25</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-num">53</div>
+          <div class="item-info"><div class="item-name">Pork with Pea Pods</div><div class="item-desc">Tender pork cooked with pea pods, carrots, water chestnuts, and bamboo shoots</div></div>
+          <div class="item-price">$13.25</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-num">54</div>
+          <div class="item-info"><div class="item-name">Mo Shu Pork</div><div class="item-desc">Shredded pork blended with mushrooms, eggs and shredded vegetables, sauteed in a delicious combination and served with four thin Chinese pancakes</div></div>
+          <div class="item-price">$14.25</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-num">54</div>
+          <div class="item-info"><div class="item-name">Mo Shu Tofu or Mo Shu Shrimp</div><div class="item-desc">Tofu or shrimp blended with mushrooms, eggs and shredded vegetables, served with four thin Chinese pancakes</div></div>
+          <div class="item-price">$14.25</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-num">55</div>
+          <div class="item-info"><div class="item-name">Twice Cooked Pork <span class="spicy">SPICY</span></div><div class="item-desc">Thinly sliced pork, green peppers, water chestnuts and cabbage sauteed with hot sauce</div></div>
+          <div class="item-price">$13.25</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-num">56</div>
+          <div class="item-info"><div class="item-name">Yu Shiang Pork <span class="spicy">SPICY</span></div><div class="item-desc">Shredded pork cooked with Chinese vegetables sauteed in Chef's spicy special sauce</div></div>
+          <div class="item-price">$13.25</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ VEGETABLES ═══ -->
+    <div class="menu-category" id="cat-vegetables">
+      <div class="menu-grid">
+        <div class="menu-item">
+          <div class="item-num">57</div>
+          <div class="item-info"><div class="item-name">Chinese Assorted Vegetables</div><div class="item-desc">Combinations of broccoli, mushrooms, pea pods, carrots, bamboo shoots, and nappa</div></div>
+          <div class="item-price">$11.25</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-num">58</div>
+          <div class="item-info"><div class="item-name">Hot Bean Curd, Chung King Style <span class="spicy">SPICY</span></div><div class="item-desc">Hot braised Chinese bean curd</div></div>
+          <div class="item-price">$13.25</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-num">59</div>
+          <div class="item-info"><div class="item-name">Braised Bean Curd</div><div class="item-desc">Chinese bean curd cooked with pea pods, mushrooms and vegetables</div></div>
+          <div class="item-price">$13.25</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-num">60</div>
+          <div class="item-info"><div class="item-name">Snow Peas with Water Chestnuts</div><div class="item-desc">Crisp snow peas and crunchy water chestnuts</div></div>
+          <div class="item-price">$13.25</div>
+        </div>
+        <div class="menu-item full-width">
+          <div class="item-num">61</div>
+          <div class="item-info"><div class="item-name">Sizzling Tofu with Vegetables</div><div class="item-desc">Slices of to-fu and Chinese greens served on a sizzling hot plate</div></div>
+          <div class="item-price">$13.25</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ CLASSICS ═══ -->
+    <div class="menu-category" id="cat-classics">
+      <div class="menu-grid">
+        <div class="menu-section-title">Egg Foo Yong</div>
+        <div class="menu-item">
+          <div class="item-num">62</div>
+          <div class="item-info"><div class="item-name">Egg Foo Yong</div><div class="item-desc">A choice of pork, beef, or chicken. Two egg patties cooked with choice of meat with vegetable in brown sauce</div></div>
+          <div class="item-price">$14.25</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-num">63</div>
+          <div class="item-info"><div class="item-name">Shrimp or Combination</div><div class="item-desc">Two egg patties cooked with shrimp or combination of shrimp, chicken and beef with vegetables</div></div>
+          <div class="item-price">$14.25</div>
+        </div>
+        <div class="menu-section-title">Chow Mein</div>
+        <div class="menu-item">
+          <div class="item-num">64</div>
+          <div class="item-info"><div class="item-name">Chow Mein</div><div class="item-desc">A choice of pork, beef or chicken. Shredded pork, beef or boneless chicken cubes cooked with vegetables</div></div>
+          <div class="item-price">$13.25</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-num">65</div>
+          <div class="item-info"><div class="item-name">Shrimp or Combination</div><div class="item-desc">Shrimp or combination of shrimp, chicken and beef cooked with vegetables</div></div>
+          <div class="item-price">$13.25</div>
+        </div>
+        <div class="menu-section-title">Fried Rice</div>
+        <div class="menu-item">
+          <div class="item-num">66</div>
+          <div class="item-info"><div class="item-name">Fried Rice</div><div class="item-desc">A choice of pork, beef or chicken. Fried with rice, egg, carrots and English peas</div></div>
+          <div class="item-price">$11.25</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-num">67</div>
+          <div class="item-info"><div class="item-name">Shrimp or Combination</div><div class="item-desc">Shrimp or combination of shrimp, chicken, and beef fried with rice, egg, carrots and English peas</div></div>
+          <div class="item-price">$11.25</div>
+        </div>
+        <div class="menu-section-title">Lo Mein</div>
+        <div class="menu-item">
+          <div class="item-num">68</div>
+          <div class="item-info"><div class="item-name">Lo Mein</div><div class="item-desc">A choice of pork, beef or chicken. Chinese noodle stir fried with vegetable</div></div>
+          <div class="item-price">$12.25</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-num">69</div>
+          <div class="item-info"><div class="item-name">Shrimp or Combination</div><div class="item-desc">Shrimp or combination of shrimp, chicken, and beef. Chinese noodle stir fried with vegetable</div></div>
+          <div class="item-price">$12.25</div>
+        </div>
+        <div class="menu-section-title">Healthy &amp; Light</div>
+        <div class="menu-item">
+          <div class="item-num">70</div>
+          <div class="item-info"><div class="item-name">Singapore Rice Noodle <span class="spicy">SPICY</span></div><div class="item-desc">Chicken, beef, shrimp with vegetable &amp; curry sauce</div></div>
+          <div class="item-price">$14.25</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-num">71</div>
+          <div class="item-info"><div class="item-name">Steamed Chicken with Vegetables</div><div class="item-desc">Low cholesterol — steamed with no oil</div></div>
+          <div class="item-price">$12.25</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-num">72</div>
+          <div class="item-info"><div class="item-name">Steamed Shrimp with Vegetables</div><div class="item-desc">Low cholesterol — steamed with no oil</div></div>
+          <div class="item-price">$13.25</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-num">73</div>
+          <div class="item-info"><div class="item-name">Steamed Mixed Vegetables with Tofu</div><div class="item-desc">Low cholesterol — steamed with no oil</div></div>
+          <div class="item-price">$13.25</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ CHEF'S SPECIALS ═══ -->
+    <div class="menu-category" id="cat-chefs">
+      <div class="menu-grid">
+        <div class="menu-item">
+          <div class="item-num letter">A</div>
+          <div class="item-info"><div class="item-name">Kung Pao Combination <span class="spicy">SPICY</span></div><div class="item-desc">Shrimp, chicken, and beef with peanuts in spicy sauce</div></div>
+          <div class="item-price">$14.25</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-num letter">B</div>
+          <div class="item-info"><div class="item-name">Chicken in Black Bean Ginger Sauce</div><div class="item-desc">Chicken and beef sautéed in savory black bean ginger sauce</div></div>
+          <div class="item-price">$14.25</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-num letter">C</div>
+          <div class="item-info"><div class="item-name">Orange Beef</div><div class="item-desc">Sliced tenderloin beef in Chef's special orange sauce</div></div>
+          <div class="item-price">$14.25</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-num letter">D</div>
+          <div class="item-info"><div class="item-name">Mongolian Trio</div><div class="item-desc">Combination of shrimp, chicken, and beef sautéed with green onions on shredded rice sticks</div></div>
+          <div class="item-price">$14.25</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-num letter">E</div>
+          <div class="item-info"><div class="item-name">Dragon Phoenix</div><div class="item-desc">Shrimp and chicken combination sautéed in light sauce with mixed vegetables</div></div>
+          <div class="item-price">$14.25</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ─── LUNCH SPECIALS ─── -->
+<section id="specials" style="background: var(--bg-card); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="overline">11:00 AM – 2:30 PM Daily</div>
+      <h2>Lunch Specials</h2>
+      <p>Every lunch combo includes fried rice, an egg roll, and hot &amp; sour soup.</p>
+    </div>
+    <div class="specials-banner fade-in">
+      <h3>Any Lunch Special</h3>
+      <p>Choose from 24 of our most popular dishes. Each served with fried rice, egg roll, and soup — all for one price.</p>
+      <div class="price">$9.25</div>
+      <div class="lunch-note">Order by number for fastest service</div>
+    </div>
+    <div class="lunch-grid fade-in" style="margin-top:40px;">
+      <div class="lunch-item"><div class="lunch-num">L1</div><div class="lunch-name">Sweet and Sour Pork</div></div>
+      <div class="lunch-item"><div class="lunch-num">L2</div><div class="lunch-name">Sweet and Sour Chicken</div></div>
+      <div class="lunch-item"><div class="lunch-num">L3</div><div class="lunch-name">Almond Chicken</div></div>
+      <div class="lunch-item"><div class="lunch-num">L4</div><div class="lunch-name">Mongolian Chicken</div></div>
+      <div class="lunch-item"><div class="lunch-num">L5</div><div class="lunch-name">Kung Pao Chicken</div></div>
+      <div class="lunch-item"><div class="lunch-num">L6</div><div class="lunch-name">Kung Pao Shrimp</div></div>
+      <div class="lunch-item"><div class="lunch-num">L7</div><div class="lunch-name">Sweet and Sour Shrimp</div></div>
+      <div class="lunch-item"><div class="lunch-num">L8</div><div class="lunch-name">Shrimp with Broccoli</div></div>
+      <div class="lunch-item"><div class="lunch-num">L9</div><div class="lunch-name">Beef with Broccoli</div></div>
+      <div class="lunch-item"><div class="lunch-num">L10</div><div class="lunch-name">Kung Pao Beef</div></div>
+      <div class="lunch-item"><div class="lunch-num">L11</div><div class="lunch-name">Pepper Steak</div></div>
+      <div class="lunch-item"><div class="lunch-num">L12</div><div class="lunch-name">Chinese Assorted Vegetables</div></div>
+      <div class="lunch-item"><div class="lunch-num">L13</div><div class="lunch-name">Chicken with Vegetables</div></div>
+      <div class="lunch-item"><div class="lunch-num">L14</div><div class="lunch-name">Shrimp with Vegetables</div></div>
+      <div class="lunch-item"><div class="lunch-num">L15</div><div class="lunch-name">Sesame Chicken</div></div>
+      <div class="lunch-item"><div class="lunch-num">L16</div><div class="lunch-name">Sesame Shrimp</div></div>
+      <div class="lunch-item"><div class="lunch-num">L17</div><div class="lunch-name">Mongolian Beef</div></div>
+      <div class="lunch-item"><div class="lunch-num">L18</div><div class="lunch-name">Hunan Chicken</div></div>
+      <div class="lunch-item"><div class="lunch-num">L19</div><div class="lunch-name">Hunan Shrimp</div></div>
+      <div class="lunch-item"><div class="lunch-num">L20</div><div class="lunch-name">Mandarin Combination</div></div>
+      <div class="lunch-item"><div class="lunch-num">L21</div><div class="lunch-name">General Tso's Chicken</div></div>
+      <div class="lunch-item"><div class="lunch-num">L22</div><div class="lunch-name">Fried Rice</div></div>
+      <div class="lunch-item"><div class="lunch-num">L23</div><div class="lunch-name">Sweet and Sour Combo</div></div>
+      <div class="lunch-item"><div class="lunch-num">L24</div><div class="lunch-name">Lo Mein</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── HOUSE DINNERS ─── -->
+<section>
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="overline">Family Style</div>
+      <h2>House Dinners</h2>
+      <p>Served with steamed rice and fortune cookies. Perfect for groups.</p>
+    </div>
+    <div class="dinner-grid fade-in" style="grid-template-columns: repeat(5, 1fr);">
+      <div class="dinner-card">
+        <div class="dinner-for">For Two</div>
+        <div class="dinner-price">$38</div>
+        <div class="dinner-desc">Appetizer, soup &amp; 2 entrees</div>
+      </div>
+      <div class="dinner-card">
+        <div class="dinner-for">For Three</div>
+        <div class="dinner-price">$55</div>
+        <div class="dinner-desc">Appetizer, soup &amp; 3 entrees</div>
+      </div>
+      <div class="dinner-card">
+        <div class="dinner-for">For Four</div>
+        <div class="dinner-price">$73</div>
+        <div class="dinner-desc">Appetizer, soup &amp; 4 entrees</div>
+      </div>
+      <div class="dinner-card">
+        <div class="dinner-for">For Five</div>
+        <div class="dinner-price">$93</div>
+        <div class="dinner-desc">Appetizer, soup &amp; 5 entrees</div>
+      </div>
+      <div class="dinner-card">
+        <div class="dinner-for">For Six</div>
+        <div class="dinner-price">$111</div>
+        <div class="dinner-desc">Appetizer, soup &amp; 6 entrees</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── REVIEWS ─── -->
+<section id="reviews" style="background: var(--bg-card); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="overline">What People Say</div>
+      <h2>Real Reviews</h2>
+    </div>
+    <div class="reviews-grid fade-in">
+      <div class="review-card">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div class="review-text">"Hands down best Chinese takeout in town! The food is always great and the owner is very sweet and friendly — she remembers our order every time."</div>
+        <div class="review-author">— Yelp Reviewer</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div class="review-text">"The Hot and Sour Soup is the best in town. Very tasty and more Chinese than most Chinese restaurants. Quick service and generous portions."</div>
+        <div class="review-author">— Yelp Reviewer</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div class="review-text">"Lunch specials are huge — meat, fried rice, soup, AND an egg roll for under $10. Can't beat it anywhere on 280. This is our go-to every week."</div>
+        <div class="review-author">— Yelp Reviewer</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CTA ─── -->
+<section class="cta-section" id="contact">
+  <h2 class="fade-in">Ready to Eat?</h2>
+  <p class="fade-in">Call ahead for fast pickup or swing by — we're on 280 next to the Lee Branch shopping area.</p>
+  <div class="hero-actions fade-in">
+    <a href="tel:2059952228" class="btn-primary" style="font-size:1.15rem;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      (205) 995-2228
+    </a>
+    <a href="https://maps.google.com/?q=5361+Highway+280+Suite+104+Birmingham+AL+35242" target="_blank" class="btn-secondary">Get Directions</a>
+  </div>
+</section>
+
+<!-- ─── MAP ─── -->
+<div class="map-section">
+  <div class="map-container">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3329.2!2d-86.71!3d33.39!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzPCsDIzJzI0LjAiTiA4NsKwNDInMzYuMCJX!5e0!3m2!1sen!2sus!4v1" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </div>
+</div>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">New<span>China</span></div>
+        <p>Family-owned Chinese restaurant serving Birmingham's Highway 280 corridor. Fresh ingredients, generous portions, and the kind of service where we remember your name.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Menu</h4>
+        <ul>
+          <li><a href="#menu">Appetizers (1–9)</a></li>
+          <li><a href="#menu">Chicken (17–32)</a></li>
+          <li><a href="#menu">Seafood (33–46)</a></li>
+          <li><a href="#menu">Beef &amp; Pork (47–56)</a></li>
+          <li><a href="#menu">Chef's Specials (A–E)</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Hours</h4>
+        <ul>
+          <li><a>Monday – Sunday</a></li>
+          <li><a>11:00 AM – 8:00 PM</a></li>
+          <li><a>&nbsp;</a></li>
+          <li><a href="#specials">Lunch Specials</a></li>
+          <li><a>11 AM – 2:30 PM</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:2059952228">(205) 995-2228</a></li>
+          <li><a href="https://maps.google.com/?q=5361+Highway+280+Suite+104+Birmingham+AL+35242" target="_blank">5361 Highway 280<br>Suite 104<br>Birmingham, AL 35242</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 New China Restaurant. All rights reserved.</span>
+      <span>newchina280.com</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ─── ORDER MODAL ─── -->
+<div class="modal-overlay" id="orderModal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeOrderModal()">&times;</button>
+    <h3>Place Your Order</h3>
+    <p>Call us directly for the fastest pickup. We'll have it ready when you arrive.</p>
+    <div class="order-tip">
+      <strong>Tip:</strong> Use the item number from our menu when ordering — just say <strong>"I'd like a #21 and a #47"</strong> for the fastest service.
+    </div>
+    <a href="tel:2059952228" class="phone-link">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      (205) 995-2228
+    </a>
+    <div class="modal-hours">Open today 11:00 AM – 8:00 PM</div>
+  </div>
+</div>
+
+<script>
+// ─── NAV SCROLL ───
+const nav = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 50);
+});
+
+// ─── MOBILE MENU ───
+function toggleMobile() {
+  document.querySelector('.hamburger').classList.toggle('active');
+  document.getElementById('mobileMenu').classList.toggle('active');
+  document.body.style.overflow = document.getElementById('mobileMenu').classList.contains('active') ? 'hidden' : '';
+}
+function closeMobile() {
+  document.querySelector('.hamburger').classList.remove('active');
+  document.getElementById('mobileMenu').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+// ─── MENU TABS ───
+document.querySelectorAll('.menu-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.menu-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.menu-category').forEach(c => c.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById('cat-' + tab.dataset.cat).classList.add('active');
+  });
+});
+
+// ─── ORDER MODAL ───
+function openOrderModal(e) { e && e.preventDefault(); document.getElementById('orderModal').classList.add('active'); document.body.style.overflow = 'hidden'; }
+function closeOrderModal() { document.getElementById('orderModal').classList.remove('active'); document.body.style.overflow = ''; }
+document.getElementById('orderModal').addEventListener('click', (e) => { if (e.target === e.currentTarget) closeOrderModal(); });
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeOrderModal(); });
+
+// ─── FADE IN ANIMATIONS ───
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// ─── SMOOTH SCROLL ───
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+  });
+});
+</script>
+</body>
+</html>
