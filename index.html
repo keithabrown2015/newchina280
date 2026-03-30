@@ -372,6 +372,11 @@ section { padding: 100px 0; }
 .lunch-item .lunch-name { font-size: 0.85rem; font-weight: 400; color: var(--text); }
 @media (max-width: 768px) {
   .lunch-grid { grid-template-columns: 1fr 1fr; }
+
+  .dinner-card.expanded .dinner-details { max-height: 2000px; }
+  .dinner-details { padding: 0 16px; }
+  .dinner-card.expanded .dinner-details { padding: 20px 16px; }
+  .dinner-sub-note { font-size: 0.85rem; padding: 12px; }
 }
 @media (max-width: 480px) {
   .lunch-grid { grid-template-columns: 1fr; }
