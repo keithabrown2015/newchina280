@@ -709,6 +709,85 @@ footer {
 /* Make menu items clickable */
 .menu-item { cursor: pointer; }
 .menu-item:hover { background: var(--bg-elevated); }
+
+/* --- MOBILE ENHANCEMENTS --- */
+@media (max-width: 768px) {
+  html { font-size: 17px; }
+  section { padding: 60px 0; }
+  .section-header { margin-bottom: 40px; }
+  .section-header h2 { font-size: 2rem; }
+  .section-header p { font-size: 1rem; }
+  .hero { min-height: 75vh; padding: 100px 20px 60px; }
+  h1 { font-size: 2.8rem; margin-bottom: 20px; }
+  .hero p { font-size: 1.05rem; margin-bottom: 32px; }
+  .hero-badge { font-size: 0.85rem; padding: 10px 20px; }
+  .btn-primary { padding: 16px 32px; font-size: 1.05rem; }
+  .btn-secondary { padding: 16px 32px; font-size: 1.05rem; }
+  .info-item .info-value { font-size: 1.1rem; }
+  .info-item .info-label { font-size: 0.8rem; }
+  .feature-card { padding: 32px 24px; }
+  .feature-card h3 { font-size: 1.15rem; }
+  .feature-card p { font-size: 0.95rem; }
+  .menu-callout .callout-text { font-size: 0.95rem; }
+  .menu-tab { padding: 12px 20px; font-size: 0.9rem; min-height: 44px; }
+  .menu-tabs { gap: 8px; margin-bottom: 32px; }
+  .menu-item { padding: 20px 16px; gap: 12px; min-height: 70px; }
+  .menu-item .item-name { font-size: 1.05rem; font-weight: 500; }
+  .menu-item .item-desc { font-size: 0.9rem; line-height: 1.5; }
+  .menu-item .item-price { font-size: 1.1rem; }
+  .item-num { min-width: 38px; height: 38px; font-size: 0.85rem; }
+  .lunch-item { padding: 16px 16px; gap: 12px; min-height: 56px; }
+  .lunch-item .lunch-name { font-size: 1rem; }
+  .lunch-num { min-width: 32px; height: 32px; font-size: 0.8rem; }
+  .specials-banner { padding: 40px 24px; }
+  .specials-banner h3 { font-size: 1.6rem; }
+  .specials-banner p { font-size: 1rem; }
+  .specials-banner .price { font-size: 2.2rem; }
+  .dinner-header .dinner-price { font-size: 1.5rem; }
+  .dinner-header .dinner-brief { font-size: 0.95rem; }
+  .dinner-header .dinner-for { font-size: 0.75rem; padding: 8px 14px; }
+  .dinner-add-cart { padding: 14px 24px; font-size: 1rem; }
+  .dinner-dish-list li { font-size: 0.95rem; padding: 12px 0; }
+  .review-card { padding: 28px 24px; }
+  .review-text { font-size: 1rem; }
+  .review-author { font-size: 0.85rem; }
+  .cta-section h2 { font-size: 2.2rem; }
+  .cta-section p { font-size: 1.05rem; }
+  .item-modal { padding: 36px 24px; }
+  .item-modal .modal-name { font-size: 1.5rem; }
+  .item-modal .modal-desc { font-size: 1rem; line-height: 1.6; }
+  .item-modal .modal-price { font-size: 1.3rem; }
+  .quantity-control button { width: 48px; height: 48px; font-size: 1.4rem; }
+  .quantity-control .qty { font-size: 1.3rem; min-width: 40px; }
+  .btn-add-cart { padding: 18px; font-size: 1.1rem; }
+  .cart-drawer { width: 100%; max-width: 100vw; }
+  .cart-item .cart-item-name { font-size: 1rem; }
+  .cart-item .cart-item-price { font-size: 0.9rem; }
+  .cart-total { font-size: 1.15rem; }
+  .cart-total .total-amount { font-size: 1.4rem; }
+  .btn-checkout { padding: 18px; font-size: 1.1rem; }
+  .modal { padding: 40px 28px; }
+  .modal h3 { font-size: 1.6rem; }
+  .modal p { font-size: 1rem; }
+  .modal .phone-link { padding: 18px 32px; font-size: 1.15rem; }
+  .modal .order-tip { font-size: 0.95rem; padding: 16px; }
+  .modal .modal-hours { font-size: 0.9rem; }
+  footer { padding: 48px 0 32px; }
+}
+@media (max-width: 480px) {
+  html { font-size: 18px; }
+  .container { padding: 0 16px; }
+  h1 { font-size: 2.4rem; }
+  .hero { min-height: 70vh; padding: 90px 16px 50px; }
+  section { padding: 48px 0; }
+  .section-header h2 { font-size: 1.75rem; }
+  .menu-item { padding: 18px 14px; }
+  .menu-item .item-name { font-size: 1.05rem; }
+  .lunch-item { padding: 18px 16px; }
+  .lunch-item .lunch-name { font-size: 1.05rem; }
+  .menu-tabs { gap: 6px; }
+  .menu-tab { padding: 10px 16px; font-size: 0.85rem; }
+}
 </style>
 </head>
 <body>
